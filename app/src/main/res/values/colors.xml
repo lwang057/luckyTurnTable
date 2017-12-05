@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+
+    <!--大转盘-->
+    <color name="color_da0e23">#da0e23</color>
+    <color name="color_ff4b42">#ff4b42</color>
+    <color name="color_ce0000">#ce0000</color>
+    <color name="color_e12232">#e12232</color>
+    <color name="color_ffc8c8">#ffc8c8</color>
+    <color name="color_ffb3b1">#ffb3b1</color>
+    <color name="color_ff8f8a">#ff8f8a</color>
+    <color name="color_e93737">#e93737</color>
+    <color name="color_ffdd9f">#ffdd9f</color>
+    <color name="color_fe996f">#fe996f</color>
+    <color name="color_de2535">#de2535</color>
+    <color name="color_f4514c">#f4514c</color>
+    <color name="color_cac4c4">#cac4c4</color>
+    <color name="color_fea49b">#fea49b</color>
+    <color name="color_e5cd8d">#e5cd8d</color>
+    <color name="color_ffeabb">#ffeabb</color>
+    <color name="color_f84d45">#f84d45</color>
+    <color name="color_f86363">#f86363</color>
+    <color name="color_00a762">#00a762</color>
+    <color name="color_f96f6f">#f96f6f</color>
+    <color name="color_ff801a">#ff801a</color>
+    <color name="color_9d9d9d">#9d9d9d</color>
+    <color name="color_848484">#848484</color>
+    <color name="color_bbbbbb">#bbbbbb</color>
+    <color name="color_a3a3a3">#a3a3a3</color>
+
+</resources>
