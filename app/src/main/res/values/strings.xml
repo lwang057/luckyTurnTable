@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">luckyTurnTable</string>
+    <string name="add_post_text">无图</string>
+    <string name="add_post_single_pic">单图</string>
+    <string name="add_post_multi_pic">多图</string>
 </resources>
