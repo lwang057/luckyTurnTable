@@ -10,8 +10,9 @@
         android:id="@+id/spring_menu_bg"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#eeffffff"
+        android:background="@color/color_00a762"
         android:visibility="gone"/>
+    <!--android:background="#eeffffff"-->
 
     <RelativeLayout
         android:id="@+id/rl_add"

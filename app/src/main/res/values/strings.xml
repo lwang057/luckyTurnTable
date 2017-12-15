@@ -3,4 +3,6 @@
     <string name="add_post_text">无图</string>
     <string name="add_post_single_pic">单图</string>
     <string name="add_post_multi_pic">多图</string>
+    <string name="add_post_gif_pic">gif图</string>
+    <string name="add_post_vote">投票</string>
 </resources>
