@@ -5,4 +5,28 @@
     <string name="add_post_multi_pic">多图</string>
     <string name="add_post_gif_pic">gif图</string>
     <string name="add_post_vote">投票</string>
+
+
+
+    <!-- 双十一抽奖页面  -->
+    <string name="lucky_draw_title">提款送壕礼，100%中奖</string>
+    <string name="iphone_8">iPhone 8</string>
+    <string name="lucky_bead">周大福转运珠</string>
+    <string name="beats_headset">Beats 耳机</string>
+    <string name="xiaomi_scales">小米体重秤</string>
+    <string name="baofeng_vr_glasses">暴风魔镜VR眼镜</string>
+    <string name="iqiyi_month_card">爱奇艺月卡会员</string>
+    <string name="iqiyi_month_card_no">爱奇艺月卡激活码</string>
+    <string name="not_activated_msg">先去获取额度再来参加活动吧</string>
+    <string name="not_extract_money_msg">先去提一笔钱再来参加活动吧</string>
+    <string name="go_extract_money">去提款</string>
+    <string name="applying_toast">先等额度申请通过后再来参加活动吧</string>
+    <string name="not_drawed_toast">您还没有抽奖，快去试试手气吧！</string>
+    <string name="has_drawed_toast">您已抽过奖啦，给别人点机会吧，在“我的奖品”中查看奖品详情哦</string>
+    <string name="give_up_prize_toast">您已放弃了奖品，下次再来吧</string>
+    <string name="draw_too_frequency_toast">心急吃不了热豆腐，请5秒后再点击哦</string>
+    <string name="congratulations_one">恭喜！抽中</string>
+    <string name="congratulations_two">哇哦，厉害啦！您抽中了</string>
+    <string name="view_card_no_tip">可在“我的奖品”查看激活码</string>
+    <string name="go_to_see">去查看</string>
 </resources>

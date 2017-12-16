@@ -1,0 +1,28 @@
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_191919"
+    tools:context="com.lwang.luckyturntable.SudokuTurnTableActivity">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/rl_panel_view"
+        android:layout_width="646px"
+        android:layout_height="592px"
+        android:layout_centerInParent="true">
+
+        <com.lwang.luckyturntable.view.LuckyMonkeyPanelView
+            android:id="@+id/lucky_panel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:id="@+id/id_draw_btn"
+            android:layout_width="183.33px"
+            android:layout_height="165.33px"
+            android:layout_centerInParent="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/bg_lucky_draw_btn_selector" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+</com.zhy.autolayout.AutoRelativeLayout>

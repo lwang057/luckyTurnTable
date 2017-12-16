@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="PswInputView">
+        <!--<attr name="count" format="integer" />-->
+        <!--<attr name="border_color" format="color" />-->
+        <!--<attr name="dot_color" format="color" />-->
+    </declare-styleable>
+
+    <declare-styleable name="LuckyMonkeyPanelView">
+        <attr name="prizeImg" format="reference"/>
+        <attr name="prizeName" format="string|reference"/>
+    </declare-styleable>
+
+</resources>

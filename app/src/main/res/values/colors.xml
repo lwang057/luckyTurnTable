@@ -32,4 +32,34 @@
     <color name="color_bbbbbb">#bbbbbb</color>
     <color name="color_a3a3a3">#a3a3a3</color>
 
+
+    <!--双11抽奖活动-->
+    <color name="color_b99d79">#b99d79</color>
+    <color name="color_191919">#191919</color>
+    <color name="color_7c542c">#7c542c</color>
+    <color name="color_eccd96">#eccd96</color>
+    <color name="color_b58c64">#b58c64</color>
+    <color name="color_d4b173">#d4b173</color>
+    <color name="color_ffe7bd">#ffe7bd</color>
+    <color name="color_41392e">#41392e</color>
+
+
+    <!--双12邀请活动-->
+    <color name="color_fd874a">#fd874a</color>
+    <color name="color_452d2d">#452d2d</color>
+    <color name="color_9c6666">#9c6666</color>
+    <color name="color_ff1d19">#ff1d19</color>
+    <color name="color_ffcc00">#ffcc00</color>
+    <color name="color_e7e7e7">#e7e7e7</color>
+    <color name="color_ff5f46">#ff5f46</color>
+    <color name="color_ff8000">#ff8000</color>
+    <color name="color_93462b">#93462b</color>
+    <color name="color_ff1d17">#ff1d17</color>
+    <color name="color_c45e0b">#c45e0b</color>
+    <color name="color_f8461d">#f8461d</color>
+
+    <!--双12邀请活动-->
+    <color name="color_222222">#222222</color>
+    <color name="color_c1d1ff">#c1d1ff</color>
+
 </resources>

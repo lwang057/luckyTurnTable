@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_bg"
+    android:layout_width="183.33px"
+    android:layout_height="165.33px"
+    android:background="@mipmap/lucky_prize_bg_normal">
+
+    <ImageView
+        android:id="@+id/item_image"
+        android:layout_width="128px"
+        android:layout_height="101.33px"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="6px"
+        android:scaleType="fitXY" />
+
+    <TextView
+        android:id="@+id/item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_image"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/color_b99d79"
+        android:textSize="11sp" />
+
+    <View
+        android:id="@+id/overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#64000000"
+        android:visibility="gone" />
+
+</com.zhy.autolayout.AutoRelativeLayout>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_ff4b42"
+    tools:context="com.lwang.luckyturntable.CircleTurntableActivity">
+
+    <ImageView
+        android:id="@+id/id_lucky_turntable"
+        android:layout_width="613.33px"
+        android:layout_height="613.33px"
+        android:layout_centerInParent="true"
+        android:src="@mipmap/lucky_turntable" />
+
+    <ImageView
+        android:id="@+id/id_start_btn"
+        android:layout_width="266.66px"
+        android:layout_height="266.66px"
+        android:layout_centerInParent="true"
+        android:src="@mipmap/lucky_go" />
+
+</com.zhy.autolayout.AutoRelativeLayout>

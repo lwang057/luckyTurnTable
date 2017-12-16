@@ -18,14 +18,15 @@
             android:name="design_height"
             android:value="1280" />
 
-        <activity android:name=".Main2Activity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".CircleTurntableActivity" />
+        <activity android:name=".SudokuTurnTableActivity" />
     </application>
 
 </manifest>

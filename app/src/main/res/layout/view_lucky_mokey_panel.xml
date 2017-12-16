@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/bg_1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@mipmap/lucky_lights_one" />
+
+    <ImageView
+        android:id="@+id/bg_2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@mipmap/lucky_lights_two"
+        android:visibility="gone" />
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="36px"
+        android:orientation="vertical">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.lwang.luckyturntable.view.LuckyMonkeyPanelItemView
+                android:id="@+id/item1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:prizeImg="@mipmap/lucky_prize1"
+                app:prizeName="@string/iphone_8" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <com.lwang.luckyturntable.view.LuckyMonkeyPanelItemView
+                android:id="@+id/item2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:prizeImg="@mipmap/lucky_prize6"
+                app:prizeName="@string/iqiyi_month_card" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <com.lwang.luckyturntable.view.LuckyMonkeyPanelItemView
+                android:id="@+id/item3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:prizeImg="@mipmap/lucky_prize3"
+                app:prizeName="@string/lucky_bead" />
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.lwang.luckyturntable.view.LuckyMonkeyPanelItemView
+                android:id="@+id/item4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:prizeImg="@mipmap/lucky_prize5"
+                app:prizeName="@string/baofeng_vr_glasses" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <com.lwang.luckyturntable.view.LuckyMonkeyPanelItemView
+                android:id="@+id/item6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:prizeImg="@mipmap/lucky_prize6"
+                app:prizeName="@string/iqiyi_month_card" />
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.lwang.luckyturntable.view.LuckyMonkeyPanelItemView
+                android:id="@+id/item7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:prizeImg="@mipmap/lucky_prize6"
+                app:prizeName="@string/iqiyi_month_card" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <com.lwang.luckyturntable.view.LuckyMonkeyPanelItemView
+                android:id="@+id/item8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:prizeImg="@mipmap/lucky_prize4"
+                app:prizeName="@string/xiaomi_scales" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <com.lwang.luckyturntable.view.LuckyMonkeyPanelItemView
+                android:id="@+id/item9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:prizeImg="@mipmap/lucky_prize2"
+                app:prizeName="@string/beats_headset" />
+        </com.zhy.autolayout.AutoLinearLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
+</com.zhy.autolayout.AutoRelativeLayout>
