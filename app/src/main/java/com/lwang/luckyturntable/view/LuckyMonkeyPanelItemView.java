@@ -12,9 +12,6 @@ import android.widget.TextView;
 import com.lwang.luckyturntable.R;
 import com.zhy.autolayout.AutoRelativeLayout;
 
-/**
- * Created by jeanboy on 2017/4/20.
- */
 
 public class LuckyMonkeyPanelItemView extends AutoRelativeLayout implements ItemView{
 

@@ -10,11 +10,6 @@ import android.widget.ImageView;
 
 import com.lwang.luckyturntable.R;
 
-
-/**
- * Created by jeanboy on 2017/4/20.
- */
-
 public class LuckyMonkeyPanelView extends FrameLayout {
 
 
