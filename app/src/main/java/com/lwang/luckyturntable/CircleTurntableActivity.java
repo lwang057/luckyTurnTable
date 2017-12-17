@@ -9,6 +9,7 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.util.Random;
 
@@ -101,7 +102,7 @@ public class CircleTurntableActivity extends AppCompatActivity implements View.O
             @Override
             public void onAnimationEnd(Animation animation) {
                 isRunning = false;
-//                showWinPrizeDialog();
+                Toast.makeText(CircleTurntableActivity.this, "富光350ml水杯", Toast.LENGTH_SHORT).show();
             }
 
             @Override
