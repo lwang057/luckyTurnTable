@@ -1,12 +1,14 @@
 # luckyTurnTable
-幸运转盘
+#####幸运转盘--->仅仅实现了效果，界面有些丑，小伙伴们要用的时候可以进行界面美化—_-
 
-简单的一个圆转盘，后期将再更新一款方形转盘
-
+<br/>
+<br/>
+###圆转盘
 <br/>
 <img src="circle_turntable.gif">
 
-
-
+<br/>
+<br/>
+###方转盘
 <br/>
 <img src="sudoku_turntable.gif">
