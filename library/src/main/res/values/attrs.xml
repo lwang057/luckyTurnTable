@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="LuckyPanelView">
+        <attr name="prizeImg" format="reference"/>
+        <attr name="prizeName" format="string|reference"/>
+    </declare-styleable>
+
+</resources>
