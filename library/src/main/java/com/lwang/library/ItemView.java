@@ -7,5 +7,5 @@ package com.lwang.library;
  */
 public interface ItemView {
 
-
+    void setFocus(boolean isFocused, int[] image);
 }

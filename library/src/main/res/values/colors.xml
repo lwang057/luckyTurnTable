@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--九宫格转盘阴影item-->
+    <color name="color_view_item_bg">#64000000</color>
+
+</resources>

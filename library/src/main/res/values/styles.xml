@@ -1,0 +1,27 @@
+<resources>
+
+    <!--九宫格转盘图片item-->
+    <style name="image_view_item">
+        <item name="android:layout_width">@dimen/dp_65</item>
+        <item name="android:layout_height">@dimen/dp_51</item>
+        <item name="android:scaleType">fitXY</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_marginTop">@dimen/dp_3</item>
+    </style>
+
+    <!--九宫格转盘文字item-->
+    <style name="text_view_item">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerHorizontal">true</item>
+    </style>
+
+    <!--九宫格转盘阴影item-->
+    <style name="view_item">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/color_view_item_bg</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
+</resources>

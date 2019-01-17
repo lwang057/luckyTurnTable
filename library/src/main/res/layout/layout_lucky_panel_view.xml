@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/view_image_bg_one" />
+
+    <include layout="@layout/view_image_bg_two" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/dp_18"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <include layout="@layout/view_panel_item_one" />
+
+            <include layout="@layout/view_horizontal_line_item" />
+
+            <include layout="@layout/view_panel_item_two" />
+
+            <include layout="@layout/view_horizontal_line_item" />
+
+            <include layout="@layout/view_panel_item_three" />
+
+        </LinearLayout>
+
+        <include layout="@layout/view_vertical_line_item" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <include layout="@layout/view_panel_item_four" />
+
+            <include layout="@layout/view_horizontal_line_item" />
+
+            <include layout="@layout/view_panel_item_five" />
+        </LinearLayout>
+
+        <include layout="@layout/view_vertical_line_item" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <include layout="@layout/view_panel_item_six" />
+
+            <include layout="@layout/view_horizontal_line_item" />
+
+            <include layout="@layout/view_panel_item_seven" />
+
+            <include layout="@layout/view_horizontal_line_item" />
+
+            <include layout="@layout/view_panel_item_eight" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>

@@ -2,8 +2,24 @@
 <resources>
 
     <declare-styleable name="LuckyPanelView">
-        <attr name="prizeImg" format="reference"/>
-        <attr name="prizeName" format="string|reference"/>
+        <attr name="image_view_bg_one" format="reference" />
+        <attr name="image_view_bg_two" format="reference" />
+        <attr name="item_image_one" format="reference" />
+        <attr name="item_image_two" format="reference" />
+        <attr name="item_image_three" format="reference" />
+        <attr name="item_image_four" format="reference" />
+        <attr name="item_image_five" format="reference" />
+        <attr name="item_image_six" format="reference" />
+        <attr name="item_image_seven" format="reference" />
+        <attr name="item_image_eight" format="reference" />
+        <attr name="item_name_one" format="string|reference" />
+        <attr name="item_name_two" format="string|reference" />
+        <attr name="item_name_three" format="string|reference" />
+        <attr name="item_name_four" format="string|reference" />
+        <attr name="item_name_five" format="string|reference" />
+        <attr name="item_name_six" format="string|reference" />
+        <attr name="item_name_seven" format="string|reference" />
+        <attr name="item_name_eight" format="string|reference" />
     </declare-styleable>
 
 </resources>

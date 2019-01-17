@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/dp_92"
+    android:layout_height="@dimen/dp_82"
+    android:background="@mipmap/lucky_prize_bg_normal">
+
+    <ImageView
+        android:id="@+id/item_image_five"
+        style="@style/image_view_item" />
+
+    <TextView
+        android:id="@+id/item_name_five"
+        style="@style/text_view_item"
+        android:layout_below="@+id/item_image_five" />
+
+    <View
+        android:id="@+id/overlay_five"
+        style="@style/view_item" />
+
+</RelativeLayout>
