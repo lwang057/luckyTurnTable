@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.lwang.library.LuckyPanelView;
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionButton;
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionMenu;
 import com.oguzdev.circularfloatingactionmenu.library.SubActionButton;
@@ -22,9 +23,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        initLucky();
         initFloatingActionsMenu();
     }
-
 
     private void initFloatingActionsMenu() {
 
@@ -36,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
                 .setContentView(fabIcon)
                 .setPosition(FloatingActionButton.POSITION_BOTTOM_CENTER)
                 .build();
-
 
 
         SubActionButton.Builder rLSubBuilder = new SubActionButton.Builder(this);
@@ -62,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
                 .setEndAngle(-45)
                 .attachTo(fabButton)
                 .build();
-
 
 
         buttonToolMenu.setStateChangeListener(new FloatingActionMenu.MenuStateChangeListener() {
@@ -103,8 +102,20 @@ public class MainActivity extends AppCompatActivity {
                 buttonToolMenu.close(false);
             }
         });
+    }
 
+    private int[] imageBg = { R.mipmap.lucky_lights_one, R.mipmap.lucky_lights_two};
 
+    private void initLucky() {
+        LuckyPanelView luckyPanelView = (LuckyPanelView) findViewById(R.id.lucky_panel_view);
+
+        try {
+            luckyPanelView.setImageBg(imageBg);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        luckyPanelView.setItemBg(R.mipmap.lucky_draw_btn_normal);
     }
 
 

@@ -42,6 +42,10 @@
 
             <include layout="@layout/view_horizontal_line_item" />
 
+            <include layout="@layout/view_panel_item_click" />
+
+            <include layout="@layout/view_horizontal_line_item" />
+
             <include layout="@layout/view_panel_item_five" />
         </LinearLayout>
 

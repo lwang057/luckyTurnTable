@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_six"
     android:layout_width="@dimen/dp_92"
-    android:layout_height="@dimen/dp_82"
-    android:background="@mipmap/lucky_prize_bg_normal">
+    android:layout_height="@dimen/dp_82">
 
     <ImageView
         android:id="@+id/item_image_six"
