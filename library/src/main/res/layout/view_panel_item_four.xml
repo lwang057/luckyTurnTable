@@ -13,8 +13,4 @@
         style="@style/text_view_item"
         android:layout_below="@+id/item_image_four" />
 
-    <View
-        android:id="@+id/overlay_four"
-        style="@style/view_item" />
-
 </RelativeLayout>

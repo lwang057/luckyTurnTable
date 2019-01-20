@@ -3,5 +3,6 @@
 
     <!--九宫格转盘阴影item-->
     <color name="color_view_item_bg">#64000000</color>
+    <color name="color_b99d79">#b99d79</color>
 
 </resources>

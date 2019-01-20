@@ -6,4 +6,7 @@
     <dimen name="dp_65">65dp</dimen>
     <dimen name="dp_82">82dp</dimen>
     <dimen name="dp_92">92dp</dimen>
+
+
+    <dimen name="sp_11">11sp</dimen>
 </resources>

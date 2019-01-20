@@ -12,4 +12,5 @@
         android:id="@+id/item_name_one"
         style="@style/text_view_item"
         android:layout_below="@+id/item_image_one" />
+
 </RelativeLayout>

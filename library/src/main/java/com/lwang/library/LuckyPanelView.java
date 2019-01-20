@@ -22,6 +22,10 @@ import java.util.List;
  */
 public class LuckyPanelView extends FrameLayout {
 
+    private static final int[] mAttr = {R.attr.text_size, R.attr.text_color};
+    private static final int ATTR_PRIZE_IMAGE = 0;
+    private static final int ATTR_PRIZE_NAME = 1;
+
     private ImageView imageBgOne, imageBgTwo;
     private RelativeLayout itemOne, itemTwo, itemThree, itemFour, itemFive, itemSix, itemSeven, itemEight;
     private ImageView itemImageOne, itemImageTwo, itemImageThree, itemImageFour, itemImageFive, itemImageSix, itemImageSeven, itemImageEight;
@@ -38,6 +42,7 @@ public class LuckyPanelView extends FrameLayout {
     public LuckyPanelView(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initView(context, attrs);
+        initAttribute(context, attrs);
     }
 
     private void initView(@Nullable Context context, @Nullable AttributeSet attrs) {
@@ -78,6 +83,18 @@ public class LuckyPanelView extends FrameLayout {
         itemEight = (RelativeLayout) findViewById(R.id.item_eight);
         itemImageEight = (ImageView) findViewById(R.id.item_image_eight);
         itemNameEight = (TextView) findViewById(R.id.item_name_eight);
+    }
+
+    private void initAttribute(Context context, AttributeSet attrs) {
+        TypedArray ta = context.obtainStyledAttributes(attrs, mAttr);
+        String size = ta.getString(ATTR_PRIZE_NAME);
+        if (size != null) {
+//            itemNameOne.setTextSize(size);
+        }
+        String color = ta.getString(ATTR_PRIZE_NAME);
+        if (color != null) {
+//            itemNameOne.setTextColor(color);
+        }
     }
 
     public void setImageBg(int[] image) throws Exception {
