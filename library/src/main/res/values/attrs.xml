@@ -23,8 +23,9 @@
     <!--</declare-styleable>-->
 
     <declare-styleable name="LuckyPanelView">
-        <attr name="text_size" format="string|reference" />
-        <attr name="text_color" format="string|reference" />
+        <attr name="item_text_size" format="dimension" />
+        <attr name="item_text_color" format="color" />
+        <attr name="item_bg" format="reference" />
     </declare-styleable>
 
 </resources>

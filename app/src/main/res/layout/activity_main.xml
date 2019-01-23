@@ -7,15 +7,12 @@
     android:background="@color/color_191919"
     tools:context="com.lwang.luckyturntable.MainActivity">
 
-    <RelativeLayout
+    <com.lwang.library.LuckyPanelView
+        android:id="@+id/lucky_panel_view"
         android:layout_width="323dp"
         android:layout_height="296dp"
-        android:layout_centerInParent="true">
-
-        <com.lwang.library.LuckyPanelView
-            android:id="@+id/lucky_panel_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </RelativeLayout>
-
+        android:layout_centerInParent="true"
+        app:item_bg="@mipmap/lucky_prize_bg_normal"
+        app:item_text_color="@color/colorAccent"
+        app:item_text_size="@dimen/textSize12" />
 </RelativeLayout>

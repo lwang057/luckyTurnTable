@@ -15,7 +15,7 @@ import android.widget.TextView;
  */
 public class LuckyPanelItemView extends RelativeLayout implements ItemView {
 
-    private static final int[] mAttr = {R.attr.prizeImg, R.attr.prizeName};
+//    private static final int[] mAttr = {R.attr.prizeImg, R.attr.prizeName};
     private static final int ATTR_PRIZE_IMAGE = 0;
     private static final int ATTR_PRIZE_NAME = 1;
 
@@ -47,15 +47,15 @@ public class LuckyPanelItemView extends RelativeLayout implements ItemView {
 
     private void initAttribute(Context context, AttributeSet attrs) {
 
-        TypedArray ta = context.obtainStyledAttributes(attrs, mAttr);
-        Drawable image = ta.getDrawable(ATTR_PRIZE_IMAGE);
-        if (image != null) {
-            itemImage.setImageDrawable(image);
-        }
-        String name = ta.getString(ATTR_PRIZE_NAME);
-        if (name != null) {
-            itemName.setText(name);
-        }
+//        TypedArray ta = context.obtainStyledAttributes(attrs, mAttr);
+//        Drawable image = ta.getDrawable(ATTR_PRIZE_IMAGE);
+//        if (image != null) {
+//            itemImage.setImageDrawable(image);
+//        }
+//        String name = ta.getString(ATTR_PRIZE_NAME);
+//        if (name != null) {
+//            itemName.setText(name);
+//        }
     }
 
     @Override

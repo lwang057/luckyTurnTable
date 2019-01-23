@@ -6,6 +6,7 @@ import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author lwang
@@ -22,11 +24,11 @@ import java.util.List;
  */
 public class LuckyPanelView extends FrameLayout {
 
-    private static final int[] mAttr = {R.attr.text_size, R.attr.text_color};
-    private static final int ATTR_PRIZE_IMAGE = 0;
-    private static final int ATTR_PRIZE_NAME = 1;
-
-    private ImageView imageBgOne, imageBgTwo;
+    private static final int[] mAttr = {R.attr.item_text_size, R.attr.item_text_color, R.attr.item_bg};
+    private static final int ATTR_ITEM_TEXT_SIZE = 0;
+    private static final int ATTR_ITEM_TEXT_COLOR = 1;
+    private static final int ATTR_ITEM_BG = 2;
+    private ImageView imageBgOne, imageBgTwo, itemClick;
     private RelativeLayout itemOne, itemTwo, itemThree, itemFour, itemFive, itemSix, itemSeven, itemEight;
     private ImageView itemImageOne, itemImageTwo, itemImageThree, itemImageFour, itemImageFive, itemImageSix, itemImageSeven, itemImageEight;
     private TextView itemNameOne, itemNameTwo, itemNameThree, itemNameFour, itemNameFive, itemNameSix, itemNameSeven, itemNameEight;
@@ -51,6 +53,8 @@ public class LuckyPanelView extends FrameLayout {
         // 背景框
         imageBgOne = (ImageView) findViewById(R.id.image_view_bg_one);
         imageBgTwo = (ImageView) findViewById(R.id.image_view_bg_two);
+        // 点击按钮
+        itemClick = (ImageView) findViewById(R.id.item_click);
         //item_1
         itemOne = (RelativeLayout) findViewById(R.id.item_one);
         itemImageOne = (ImageView) findViewById(R.id.item_image_one);
@@ -87,13 +91,40 @@ public class LuckyPanelView extends FrameLayout {
 
     private void initAttribute(Context context, AttributeSet attrs) {
         TypedArray ta = context.obtainStyledAttributes(attrs, mAttr);
-        String size = ta.getString(ATTR_PRIZE_NAME);
-        if (size != null) {
-//            itemNameOne.setTextSize(size);
-        }
-        String color = ta.getString(ATTR_PRIZE_NAME);
-        if (color != null) {
-//            itemNameOne.setTextColor(color);
+
+        // 设置item的字体大小
+        float size = ta.getDimension(ATTR_ITEM_TEXT_SIZE, (float) getResources().getDimension(R.dimen.sp_11));
+        itemNameOne.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
+        itemNameTwo.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
+        itemNameThree.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
+        itemNameFour.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
+        itemNameFive.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
+        itemNameSix.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
+        itemNameSeven.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
+        itemNameEight.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
+
+        // 设置item的字体颜色
+        int color = ta.getColor(ATTR_ITEM_TEXT_COLOR, getResources().getColor(R.color.color_b99d79));
+        itemNameOne.setTextColor(color);
+        itemNameTwo.setTextColor(color);
+        itemNameThree.setTextColor(color);
+        itemNameFour.setTextColor(color);
+        itemNameFive.setTextColor(color);
+        itemNameSix.setTextColor(color);
+        itemNameSeven.setTextColor(color);
+        itemNameEight.setTextColor(color);
+
+        // 设置item的背景图片
+        Drawable itemBg = ta.getDrawable(ATTR_ITEM_BG);
+        if (itemBg != null) {
+            itemOne.setBackgroundDrawable(itemBg);
+            itemTwo.setBackgroundDrawable(itemBg);
+            itemThree.setBackgroundDrawable(itemBg);
+            itemFour.setBackgroundDrawable(itemBg);
+            itemFive.setBackgroundDrawable(itemBg);
+            itemSix.setBackgroundDrawable(itemBg);
+            itemSeven.setBackgroundDrawable(itemBg);
+            itemEight.setBackgroundDrawable(itemBg);
         }
     }
 
@@ -104,17 +135,6 @@ public class LuckyPanelView extends FrameLayout {
         } else {
             throw new Exception("请设置两个背景图");
         }
-    }
-
-    public void setItemBg(int image) {
-        itemOne.setBackgroundResource(image);
-        itemTwo.setBackgroundResource(image);
-        itemThree.setBackgroundResource(image);
-        itemFour.setBackgroundResource(image);
-        itemFive.setBackgroundResource(image);
-        itemSix.setBackgroundResource(image);
-        itemSeven.setBackgroundResource(image);
-        itemEight.setBackgroundResource(image);
     }
 
     public void setItemImage(int[] itemImage) throws Exception {
@@ -145,6 +165,11 @@ public class LuckyPanelView extends FrameLayout {
         } else {
             throw new Exception("请设置八个名称");
         }
+    }
+
+    public void setItemData(List<Map<String, String>> list){
+
+
     }
 
 
