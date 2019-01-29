@@ -1,31 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <!--<declare-styleable name="LuckyPanelView">-->
-    <!--<attr name="image_view_bg_one" format="reference" />-->
-    <!--<attr name="image_view_bg_two" format="reference" />-->
-    <!--<attr name="item_image_one" format="reference" />-->
-    <!--<attr name="item_image_two" format="reference" />-->
-    <!--<attr name="item_image_three" format="reference" />-->
-    <!--<attr name="item_image_four" format="reference" />-->
-    <!--<attr name="item_image_five" format="reference" />-->
-    <!--<attr name="item_image_six" format="reference" />-->
-    <!--<attr name="item_image_seven" format="reference" />-->
-    <!--<attr name="item_image_eight" format="reference" />-->
-    <!--<attr name="item_name_one" format="string|reference" />-->
-    <!--<attr name="item_name_two" format="string|reference" />-->
-    <!--<attr name="item_name_three" format="string|reference" />-->
-    <!--<attr name="item_name_four" format="string|reference" />-->
-    <!--<attr name="item_name_five" format="string|reference" />-->
-    <!--<attr name="item_name_six" format="string|reference" />-->
-    <!--<attr name="item_name_seven" format="string|reference" />-->
-    <!--<attr name="item_name_eight" format="string|reference" />-->
-    <!--</declare-styleable>-->
-
     <declare-styleable name="LuckyPanelView">
         <attr name="item_text_size" format="dimension" />
         <attr name="item_text_color" format="color" />
-        <attr name="item_bg" format="reference" />
+        <attr name="item_click" format="reference" />
+        <attr name="item_bg_normal" format="reference" />
+        <attr name="item_bg_focused" format="reference" />
+        <attr name="border_bg_one" format="reference" />
+        <attr name="border_bg_two" format="reference" />
     </declare-styleable>
 
 </resources>

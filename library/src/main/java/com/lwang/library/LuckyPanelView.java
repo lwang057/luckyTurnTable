@@ -2,18 +2,22 @@ package com.lwang.library;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -24,14 +28,33 @@ import java.util.Map;
  */
 public class LuckyPanelView extends FrameLayout {
 
-    private static final int[] mAttr = {R.attr.item_text_size, R.attr.item_text_color, R.attr.item_bg};
+    private static final int[] mAttr = {R.attr.item_text_size, R.attr.item_text_color, R.attr.item_click,
+            R.attr.item_bg_normal, R.attr.item_bg_focused, R.attr.border_bg_one, R.attr.border_bg_two};
     private static final int ATTR_ITEM_TEXT_SIZE = 0;
     private static final int ATTR_ITEM_TEXT_COLOR = 1;
-    private static final int ATTR_ITEM_BG = 2;
+    private static final int ATTR_ITEM_CLICK = 2;
+    private static final int ATTR_ITEM_BG_NORMAL = 3;
+    private static final int ATTR_ITEM_BG_FOCUSED = 4;
+    private static final int ATTR_BORDER_BG_ONE = 5;
+    private static final int ATTR_BORDER_BG_TWO = 6;
     private ImageView imageBgOne, imageBgTwo, itemClick;
-    private RelativeLayout itemOne, itemTwo, itemThree, itemFour, itemFive, itemSix, itemSeven, itemEight;
-    private ImageView itemImageOne, itemImageTwo, itemImageThree, itemImageFour, itemImageFive, itemImageSix, itemImageSeven, itemImageEight;
-    private TextView itemNameOne, itemNameTwo, itemNameThree, itemNameFour, itemNameFive, itemNameSix, itemNameSeven, itemNameEight;
+    private RelativeLayout[] itemBgArr = new RelativeLayout[8];
+    private TextView[] itemNameArr = new TextView[8];
+    private ImageView[] itemImageArr = new ImageView[8];
+    private Drawable itemBgNormal, itemBgFocused;
+
+    private int currentIndex = 0;
+    private int currentTotal = 0;
+    private int stayIndex = 0;
+
+    private boolean isMarqueeRunning = false;
+    private boolean isGameRunning = false;
+    private boolean isTryToStop = false;
+
+    private static final int DEFAULT_SPEED = 300;
+    private static final int MIN_SPEED = 80;
+    private int currentSpeed = DEFAULT_SPEED;
+
 
     public LuckyPanelView(@NonNull Context context) {
         this(context, null);
@@ -45,6 +68,19 @@ public class LuckyPanelView extends FrameLayout {
         super(context, attrs, defStyleAttr);
         initView(context, attrs);
         initAttribute(context, attrs);
+        initListener();
+    }
+
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        startMarquee();
+    }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        stopMarquee();
+        super.onDetachedFromWindow();
     }
 
     private void initView(@Nullable Context context, @Nullable AttributeSet attrs) {
@@ -56,37 +92,37 @@ public class LuckyPanelView extends FrameLayout {
         // 点击按钮
         itemClick = (ImageView) findViewById(R.id.item_click);
         //item_1
-        itemOne = (RelativeLayout) findViewById(R.id.item_one);
-        itemImageOne = (ImageView) findViewById(R.id.item_image_one);
-        itemNameOne = (TextView) findViewById(R.id.item_name_one);
+        itemBgArr[1] = (RelativeLayout) findViewById(R.id.item_one);
+        itemNameArr[0] = (TextView) findViewById(R.id.item_name_one);
+        itemImageArr[0] = (ImageView) findViewById(R.id.item_image_one);
         //item_2
-        itemTwo = (RelativeLayout) findViewById(R.id.item_two);
-        itemImageTwo = (ImageView) findViewById(R.id.item_image_two);
-        itemNameTwo = (TextView) findViewById(R.id.item_name_two);
+        itemBgArr[2] = (RelativeLayout) findViewById(R.id.item_two);
+        itemNameArr[1] = (TextView) findViewById(R.id.item_name_two);
+        itemImageArr[1] = (ImageView) findViewById(R.id.item_image_two);
         //item_3
-        itemThree = (RelativeLayout) findViewById(R.id.item_three);
-        itemImageThree = (ImageView) findViewById(R.id.item_image_three);
-        itemNameThree = (TextView) findViewById(R.id.item_name_three);
+        itemBgArr[3] = (RelativeLayout) findViewById(R.id.item_three);
+        itemNameArr[2] = (TextView) findViewById(R.id.item_name_three);
+        itemImageArr[2] = (ImageView) findViewById(R.id.item_image_three);
         //item_4
-        itemFour = (RelativeLayout) findViewById(R.id.item_four);
-        itemImageFour = (ImageView) findViewById(R.id.item_image_four);
-        itemNameFour = (TextView) findViewById(R.id.item_name_four);
+        itemBgArr[0] = (RelativeLayout) findViewById(R.id.item_four);
+        itemNameArr[3] = (TextView) findViewById(R.id.item_name_four);
+        itemImageArr[3] = (ImageView) findViewById(R.id.item_image_four);
         //item_5
-        itemFive = (RelativeLayout) findViewById(R.id.item_five);
-        itemImageFive = (ImageView) findViewById(R.id.item_image_five);
-        itemNameFive = (TextView) findViewById(R.id.item_name_five);
+        itemBgArr[4] = (RelativeLayout) findViewById(R.id.item_five);
+        itemNameArr[4] = (TextView) findViewById(R.id.item_name_five);
+        itemImageArr[4] = (ImageView) findViewById(R.id.item_image_five);
         //item_6
-        itemSix = (RelativeLayout) findViewById(R.id.item_six);
-        itemImageSix = (ImageView) findViewById(R.id.item_image_six);
-        itemNameSix = (TextView) findViewById(R.id.item_name_six);
+        itemBgArr[7] = (RelativeLayout) findViewById(R.id.item_six);
+        itemNameArr[5] = (TextView) findViewById(R.id.item_name_six);
+        itemImageArr[5] = (ImageView) findViewById(R.id.item_image_six);
         //item_7
-        itemSeven = (RelativeLayout) findViewById(R.id.item_seven);
-        itemImageSeven = (ImageView) findViewById(R.id.item_image_seven);
-        itemNameSeven = (TextView) findViewById(R.id.item_name_seven);
+        itemBgArr[6] = (RelativeLayout) findViewById(R.id.item_seven);
+        itemNameArr[6] = (TextView) findViewById(R.id.item_name_seven);
+        itemImageArr[6] = (ImageView) findViewById(R.id.item_image_seven);
         //item_8
-        itemEight = (RelativeLayout) findViewById(R.id.item_eight);
-        itemImageEight = (ImageView) findViewById(R.id.item_image_eight);
-        itemNameEight = (TextView) findViewById(R.id.item_name_eight);
+        itemBgArr[5] = (RelativeLayout) findViewById(R.id.item_eight);
+        itemNameArr[7] = (TextView) findViewById(R.id.item_name_eight);
+        itemImageArr[7] = (ImageView) findViewById(R.id.item_image_eight);
     }
 
     private void initAttribute(Context context, AttributeSet attrs) {
@@ -94,83 +130,214 @@ public class LuckyPanelView extends FrameLayout {
 
         // 设置item的字体大小
         float size = ta.getDimension(ATTR_ITEM_TEXT_SIZE, (float) getResources().getDimension(R.dimen.sp_11));
-        itemNameOne.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
-        itemNameTwo.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
-        itemNameThree.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
-        itemNameFour.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
-        itemNameFive.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
-        itemNameSix.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
-        itemNameSeven.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
-        itemNameEight.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
+        for (TextView itemName : itemNameArr) {
+            itemName.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
+        }
 
         // 设置item的字体颜色
-        int color = ta.getColor(ATTR_ITEM_TEXT_COLOR, getResources().getColor(R.color.color_b99d79));
-        itemNameOne.setTextColor(color);
-        itemNameTwo.setTextColor(color);
-        itemNameThree.setTextColor(color);
-        itemNameFour.setTextColor(color);
-        itemNameFive.setTextColor(color);
-        itemNameSix.setTextColor(color);
-        itemNameSeven.setTextColor(color);
-        itemNameEight.setTextColor(color);
+        int color = ta.getColor(ATTR_ITEM_TEXT_COLOR, Color.DKGRAY);
+        for (TextView itemName : itemNameArr) {
+            itemName.setTextColor(color);
+        }
+
+        // 设置中间位置，立即抽奖的图片
+        Drawable item = ta.getDrawable(ATTR_ITEM_CLICK);
+        if (item != null) {
+            itemClick.setImageDrawable(item);
+        }
 
         // 设置item的背景图片
-        Drawable itemBg = ta.getDrawable(ATTR_ITEM_BG);
-        if (itemBg != null) {
-            itemOne.setBackgroundDrawable(itemBg);
-            itemTwo.setBackgroundDrawable(itemBg);
-            itemThree.setBackgroundDrawable(itemBg);
-            itemFour.setBackgroundDrawable(itemBg);
-            itemFive.setBackgroundDrawable(itemBg);
-            itemSix.setBackgroundDrawable(itemBg);
-            itemSeven.setBackgroundDrawable(itemBg);
-            itemEight.setBackgroundDrawable(itemBg);
+        itemBgNormal = ta.getDrawable(ATTR_ITEM_BG_NORMAL);
+        itemBgFocused = ta.getDrawable(ATTR_ITEM_BG_FOCUSED);
+        if (itemBgNormal != null) {
+            for (RelativeLayout itemBg : itemBgArr) {
+                itemBg.setBackgroundDrawable(itemBgNormal);
+            }
+        }
+
+        // 设置九宫格边框的背景图片
+        Drawable borderBgOne = ta.getDrawable(ATTR_BORDER_BG_ONE);
+        if (borderBgOne != null) {
+            imageBgOne.setImageDrawable(borderBgOne);
+        }
+        Drawable borderBgTwo = ta.getDrawable(ATTR_BORDER_BG_TWO);
+        if (borderBgTwo != null) {
+            imageBgTwo.setImageDrawable(borderBgTwo);
         }
     }
 
-    public void setImageBg(int[] image) throws Exception {
-        if (image != null && image.length >= 2) {
-            imageBgOne.setImageResource(image[0]);
-            imageBgTwo.setImageResource(image[1]);
+    private void initListener() {
+        itemClick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mOnStartClick != null) {
+                    mOnStartClick.onStartClick();
+                }
+            }
+        });
+    }
+
+    /**
+     * 设置转盘中item的名称和图片
+     *
+     * @param list
+     */
+    public void setItemData(List<ItemDataBean> list) {
+        if (list != null && list.size() >= 8) {
+            for (int i = 0; i < list.size(); i++) {
+                itemNameArr[i].setText(list.get(i).getName());
+                itemImageArr[i].setImageDrawable(getResources().getDrawable(list.get(i).getImage()));
+            }
+        }
+    }
+
+    private void stopMarquee() {
+        isMarqueeRunning = false;
+        isGameRunning = false;
+        isTryToStop = false;
+    }
+
+    private void startMarquee() {
+        isMarqueeRunning = true;
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (isMarqueeRunning) {
+                    try {
+                        Thread.sleep(250);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+
+                    post(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (imageBgOne != null && imageBgTwo != null) {
+                                if (VISIBLE == imageBgOne.getVisibility()) {
+                                    imageBgOne.setVisibility(GONE);
+                                    imageBgTwo.setVisibility(VISIBLE);
+                                } else {
+                                    imageBgOne.setVisibility(VISIBLE);
+                                    imageBgTwo.setVisibility(GONE);
+                                }
+                            }
+                        }
+                    });
+                }
+            }
+        }).start();
+    }
+
+
+    private long getInterruptTime() {
+        currentTotal++;
+        if (isTryToStop) {
+            currentSpeed += 20;
+            if (currentSpeed > DEFAULT_SPEED) {
+                currentSpeed = DEFAULT_SPEED;
+            }
         } else {
-            throw new Exception("请设置两个背景图");
+            if (currentTotal / itemBgArr.length > 0) {
+                currentSpeed -= 100;
+            }
+            if (currentSpeed < MIN_SPEED) {
+                currentSpeed = MIN_SPEED;
+            }
+        }
+        return currentSpeed;
+    }
+
+    public boolean isGameRunning() {
+        return isGameRunning;
+    }
+
+    public void startGame() {
+        isGameRunning = true;
+        isTryToStop = false;
+        currentSpeed = DEFAULT_SPEED;
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (isGameRunning) {
+                    try {
+                        Thread.sleep(getInterruptTime());
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+
+                    post(new Runnable() {
+                        @Override
+                        public void run() {
+                            int preIndex = currentIndex;
+                            currentIndex++;
+                            if (currentIndex >= itemBgArr.length) {
+                                currentIndex = 0;
+                            }
+
+                            itemBgArr[preIndex].setBackgroundDrawable(itemBgNormal);
+                            itemBgArr[currentIndex].setBackgroundDrawable(itemBgFocused);
+
+                            if (isTryToStop && currentSpeed == DEFAULT_SPEED && stayIndex == currentIndex) {
+                                isGameRunning = false;
+                                if (mListener != null) {
+                                    mListener.onAnimationEnd();
+                                }
+                            }
+                        }
+                    });
+                }
+            }
+        }).start();
+    }
+
+    public void tryToStop(int position) {
+        stayIndex = position;
+        isTryToStop = true;
+    }
+
+    /**
+     * 重置转盘
+     */
+    public void reset() {
+        isGameRunning = false;
+        isTryToStop = false;
+        isMarqueeRunning = true;
+        currentIndex = 0;
+        currentTotal = 0;
+        stayIndex = 0;
+        currentSpeed = DEFAULT_SPEED;
+        mListener = null;
+
+        for (RelativeLayout itemBg : itemBgArr) {
+            itemBg.setBackgroundDrawable(itemBgNormal);
         }
     }
 
-    public void setItemImage(int[] itemImage) throws Exception {
-        if (itemImage != null && itemImage.length >= 8) {
-            itemImageOne.setImageDrawable(getResources().getDrawable(itemImage[0]));
-            itemImageTwo.setImageDrawable(getResources().getDrawable(itemImage[1]));
-            itemImageThree.setImageDrawable(getResources().getDrawable(itemImage[2]));
-            itemImageFour.setImageDrawable(getResources().getDrawable(itemImage[3]));
-            itemImageFive.setImageDrawable(getResources().getDrawable(itemImage[4]));
-            itemImageSix.setImageDrawable(getResources().getDrawable(itemImage[5]));
-            itemImageSeven.setImageDrawable(getResources().getDrawable(itemImage[6]));
-            itemImageEight.setImageDrawable(getResources().getDrawable(itemImage[7]));
-        } else {
-            throw new Exception("请设置八个图标");
-        }
+
+    LuckyMonkeyAnimationListener mListener;
+
+    public void setGameListener(LuckyMonkeyAnimationListener listener) {
+        mListener = listener;
     }
 
-    public void setItemName(int[] itemName) throws Exception {
-        if (itemName != null && itemName.length >= 8) {
-            itemNameOne.setText(itemName[0]);
-            itemNameTwo.setText(itemName[1]);
-            itemNameThree.setText(itemName[2]);
-            itemNameFour.setText(itemName[3]);
-            itemNameFive.setText(itemName[4]);
-            itemNameSix.setText(itemName[5]);
-            itemNameSeven.setText(itemName[6]);
-            itemNameEight.setText(itemName[7]);
-        } else {
-            throw new Exception("请设置八个名称");
-        }
+    public interface LuckyMonkeyAnimationListener {
+        void onAnimationEnd();
     }
 
-    public void setItemData(List<Map<String, String>> list){
 
+    OnStartClickListener mOnStartClick;
 
+    public interface OnStartClickListener {
+        void onStartClick();
     }
 
+    /**
+     * 设置点击立即抽奖的按钮
+     *
+     * @param onStartClick
+     */
+    public void setOnStartClickListener(OnStartClickListener onStartClick) {
+        mOnStartClick = onStartClick;
+    }
 
 }

@@ -21,17 +21,17 @@
 
             <include layout="@layout/view_panel_item_one" />
 
-            <include layout="@layout/view_horizontal_line_item" />
+            <include layout="@layout/view_line_horizontal_item" />
 
             <include layout="@layout/view_panel_item_two" />
 
-            <include layout="@layout/view_horizontal_line_item" />
+            <include layout="@layout/view_line_horizontal_item" />
 
             <include layout="@layout/view_panel_item_three" />
 
         </LinearLayout>
 
-        <include layout="@layout/view_vertical_line_item" />
+        <include layout="@layout/view_line_vertical_item" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -40,16 +40,16 @@
 
             <include layout="@layout/view_panel_item_four" />
 
-            <include layout="@layout/view_horizontal_line_item" />
+            <include layout="@layout/view_line_horizontal_item" />
 
             <include layout="@layout/view_panel_item_click" />
 
-            <include layout="@layout/view_horizontal_line_item" />
+            <include layout="@layout/view_line_horizontal_item" />
 
             <include layout="@layout/view_panel_item_five" />
         </LinearLayout>
 
-        <include layout="@layout/view_vertical_line_item" />
+        <include layout="@layout/view_line_vertical_item" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -58,11 +58,11 @@
 
             <include layout="@layout/view_panel_item_six" />
 
-            <include layout="@layout/view_horizontal_line_item" />
+            <include layout="@layout/view_line_horizontal_item" />
 
             <include layout="@layout/view_panel_item_seven" />
 
-            <include layout="@layout/view_horizontal_line_item" />
+            <include layout="@layout/view_line_horizontal_item" />
 
             <include layout="@layout/view_panel_item_eight" />
 

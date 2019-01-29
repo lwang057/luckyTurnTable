@@ -7,8 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.lwang.library.ItemDataBean;
 import com.lwang.library.LuckyPanelView;
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionButton;
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionMenu;
@@ -27,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        initLucky();
         initFloatingActionsMenu();
     }
 
@@ -106,32 +107,14 @@ public class MainActivity extends AppCompatActivity {
                 buttonToolMenu.close(false);
             }
         });
+
+
+        findViewById(R.id.tv).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, TestActivity.class));
+            }
+        });
     }
-
-
-    private int[] imageBg = {R.mipmap.lucky_lights_one, R.mipmap.lucky_lights_two};
-    private int[] imageImage = {R.mipmap.lucky_prize1, R.mipmap.lucky_prize6, R.mipmap.lucky_prize3, R.mipmap.lucky_prize5,
-            R.mipmap.lucky_prize6, R.mipmap.lucky_prize6, R.mipmap.lucky_prize4, R.mipmap.lucky_prize2};
-    private int[] imageName = {R.string.iphone_8, R.string.iqiyi_month_card, R.string.lucky_bead, R.string.baofeng_vr_glasses,
-            R.string.iqiyi_month_card, R.string.iqiyi_month_card, R.string.xiaomi_scales, R.string.beats_headset};
-
-    private List<Map<String, String>> list = new ArrayList<>();
-
-    private void initLucky() {
-
-
-        LuckyPanelView luckyPanelView = (LuckyPanelView) findViewById(R.id.lucky_panel_view);
-
-        try {
-            luckyPanelView.setImageBg(imageBg);
-            luckyPanelView.setItemImage(imageImage);
-            luckyPanelView.setItemName(imageName);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-
-    }
-
 
 }

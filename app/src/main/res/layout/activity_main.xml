@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_191919"
     tools:context="com.lwang.luckyturntable.MainActivity">
 
-    <com.lwang.library.LuckyPanelView
-        android:id="@+id/lucky_panel_view"
-        android:layout_width="323dp"
-        android:layout_height="296dp"
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        app:item_bg="@mipmap/lucky_prize_bg_normal"
-        app:item_text_color="@color/colorAccent"
-        app:item_text_size="@dimen/textSize12" />
+        android:textColor="#ffffff"
+        android:text="Hello World!" />
+
 </RelativeLayout>

@@ -3,5 +3,4 @@
     android:id="@+id/item_click"
     android:layout_width="92dp"
     android:layout_height="82dp"
-    android:scaleType="fitXY"
-    android:src="@drawable/bg_lucky_draw_btn_selector" />
+    android:scaleType="fitXY" />
